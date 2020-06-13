@@ -53,7 +53,7 @@ class ActivitySecond : AppCompatActivity() {
                         val tempC = String.format("%.1f", tempMainC)
                         textTemp.text = "temp is: $tempC $DEGREE_C"
                     } else
-                        Toast.makeText(this@ActivitySecond, "Somthing is wrong", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@ActivitySecond, "Something is wrong", Toast.LENGTH_SHORT)
                 }
 
             }
