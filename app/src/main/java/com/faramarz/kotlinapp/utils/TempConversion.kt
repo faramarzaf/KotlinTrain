@@ -1,6 +1,6 @@
 package com.faramarz.kotlinapp.utils
 
-class ConversionUtil {
+class TempConversion {
 
     object CToF {
         fun convert(temp: Float): Float {

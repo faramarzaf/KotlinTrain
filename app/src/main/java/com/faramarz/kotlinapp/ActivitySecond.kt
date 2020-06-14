@@ -8,7 +8,7 @@ import com.faramarz.kotlinapp.interfaces.OnGetTempCallback
 import com.faramarz.kotlinapp.utils.DEGREE_C
 import com.faramarz.kotlinapp.network.WeatherRepository
 import com.faramarz.kotlinapp.network.WeatherResponse
-import com.faramarz.kotlinapp.utils.ConversionUtil
+import com.faramarz.kotlinapp.utils.TempConversion
 import kotlinx.android.synthetic.main.activity_second.*
 import retrofit2.Response
 
@@ -39,9 +39,10 @@ class ActivitySecond : AppCompatActivity(), View.OnClickListener {
                     with(weather?.body()?.main) {
                         if (weather?.body() != null) {
                             var tempMain = this!!.temp //kalvin
-                            var TempC = ConversionUtil.KToC.convert(tempMain)
+                            var TempC = TempConversion.KToC.convert(tempMain)
                             val tempC = String.format("%.1f", TempC)
                             textTemp.text = "temp is: $tempC $DEGREE_C"
+
                         }
                     }
                 }
@@ -59,7 +60,7 @@ class ActivitySecond : AppCompatActivity(), View.OnClickListener {
                     with(weather?.body()?.main) {
                         if (weather?.body() != null) {
                             var tempMain = this!!.temp
-                            var TempC = ConversionUtil.KToC.convert(tempMain)
+                            var TempC = TempConversion.KToC.convert(tempMain)
                             val tempC = String.format("%.1f", TempC)
                             textTempCity.text = "temp is: $tempC $DEGREE_C"
                         }

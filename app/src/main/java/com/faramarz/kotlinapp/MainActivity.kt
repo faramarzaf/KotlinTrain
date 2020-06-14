@@ -8,19 +8,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-
-    private val name = "fara"
-    private val age = 22
-    private val myText = "hi im $name and im ${age.toString()} years old"
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         btnSave.setOnClickListener(this)
         btnNextPage.setOnClickListener(this)
-
     }
 
     override fun onClick(v: View?) {
