@@ -42,4 +42,23 @@ class WeatherRepository {
         }
     }
 
+    object GetDataByCityName {
+        fun getData(cityName: String, callback: OnGetTempCallback) {
+            val request = ServiceBuilder.buildService(WeatherAPI::class.java)
+            val call = request.getDataByCityName(cityName, API_KEY)
+            call.enqueue(object : Callback<WeatherResponse> {
+                override
+                fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
+                    callback.onError(t.message)
+                }
+
+                override
+                fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
+                    if (response.body() != null)
+                        callback.onSuccess(response)
+                }
+            })
+
+        }
+    }
 }

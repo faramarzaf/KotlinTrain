@@ -19,23 +19,24 @@ class ActivitySecond : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         btnGetDataByLatLon.setOnClickListener(this)
+        btnGetDataByCityName.setOnClickListener(this)
     }
 
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btnGetDataByLatLon -> getTemp()
+            R.id.btnGetDataByLatLon -> getTempByLatLon()
+            R.id.btnGetDataByCityName -> getTempByCityName()
         }
     }
 
-    fun getTemp() {
+    fun getTempByLatLon() {
         WeatherRepository.GetDateByLatLon.getData(editTextLat.text.toString().trim(),
             editTextLon.text.toString().trim(), object : OnGetTempCallback {
                 override fun onSuccess(weather: Response<WeatherResponse>?) {
                     with(weather?.body()?.main) {
                         if (weather?.body() != null) {
                             var tempMain = this!!.temp //kalvin
-
                             var TempC = ConversionUtil.KToC.convert(tempMain)
                             val tempC = String.format("%.1f", TempC)
                             textTemp.text = "temp is: $tempC $DEGREE_C"
@@ -48,5 +49,26 @@ class ActivitySecond : AppCompatActivity(), View.OnClickListener {
                 }
             })
     }
+
+    fun getTempByCityName() {
+        WeatherRepository.GetDataByCityName.getData(editTextCity.text.toString().trim(),
+            object : OnGetTempCallback {
+                override fun onSuccess(weather: Response<WeatherResponse>?) {
+                    with(weather?.body()?.main) {
+                        if (weather?.body() != null) {
+                            var tempMain = this!!.temp
+                            var TempC = ConversionUtil.KToC.convert(tempMain)
+                            val tempC = String.format("%.1f", TempC)
+                            textTempCity.text = "temp is: $tempC $DEGREE_C"
+                        }
+                    }
+                }
+
+                override fun onError(msg: String?) {
+                    Toast.makeText(this@ActivitySecond, msg, Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+
 }
 
