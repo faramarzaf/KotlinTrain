@@ -1,9 +1,11 @@
 package com.faramarz.kotlinapp.weather;
 
+import retrofit2.Response;
+
 public interface OnGetTempCallback {
 
-    void onSuccess(WeatherResponse weather);
+    void onSuccess(Response<WeatherResponse> weather);
 
-    void onError();
+    void onError(String msg);
 
 }

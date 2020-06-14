@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-
             R.id.btnSave -> textView.text = editText.text
             R.id.btnNextPage -> startActivity(Intent(this, ActivitySecond::class.java))
-
         }
     }
 }
