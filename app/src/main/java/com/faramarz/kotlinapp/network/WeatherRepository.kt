@@ -1,5 +1,8 @@
-package com.faramarz.kotlinapp.weather
+package com.faramarz.kotlinapp.network
 
+import com.faramarz.kotlinapp.utils.API_KEY
+import com.faramarz.kotlinapp.utils.BASE_URL
+import com.faramarz.kotlinapp.interfaces.OnGetTempCallback
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +27,8 @@ class WeatherRepository {
 
     object GetDateByLatLon {
         fun getData(lat: String, lon: String, callback: OnGetTempCallback) {
-            val request = ServiceBuilder.buildService(WeatherAPI::class.java)
+            val request =
+                ServiceBuilder.buildService(WeatherAPI::class.java)
             val call = request.getDataByLatLon(lat, lon, API_KEY)
 
             call.enqueue(object : Callback<WeatherResponse> {
@@ -44,7 +48,8 @@ class WeatherRepository {
 
     object GetDataByCityName {
         fun getData(cityName: String, callback: OnGetTempCallback) {
-            val request = ServiceBuilder.buildService(WeatherAPI::class.java)
+            val request =
+                ServiceBuilder.buildService(WeatherAPI::class.java)
             val call = request.getDataByCityName(cityName, API_KEY)
             call.enqueue(object : Callback<WeatherResponse> {
                 override

@@ -1,4 +1,4 @@
-package com.faramarz.kotlinapp.weather
+package com.faramarz.kotlinapp.network
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -1,4 +1,6 @@
-package com.faramarz.kotlinapp.weather;
+package com.faramarz.kotlinapp.interfaces;
+
+import com.faramarz.kotlinapp.network.WeatherResponse;
 
 import retrofit2.Response;
 

@@ -1,4 +1,4 @@
-package com.faramarz.kotlinapp.weather
+package com.faramarz.kotlinapp.utils
 
 const val API_KEY = "a5f06f7985166354304befe85a386554"
 const val DEGREE_C = "°C"

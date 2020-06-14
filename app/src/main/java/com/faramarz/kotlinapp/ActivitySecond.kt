@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.faramarz.kotlinapp.weather.DEGREE_C
-import com.faramarz.kotlinapp.weather.OnGetTempCallback
-import com.faramarz.kotlinapp.weather.WeatherRepository
-import com.faramarz.kotlinapp.weather.WeatherResponse
+import com.faramarz.kotlinapp.interfaces.OnGetTempCallback
+import com.faramarz.kotlinapp.utils.DEGREE_C
+import com.faramarz.kotlinapp.network.WeatherRepository
+import com.faramarz.kotlinapp.network.WeatherResponse
+import com.faramarz.kotlinapp.utils.ConversionUtil
 import kotlinx.android.synthetic.main.activity_second.*
 import retrofit2.Response
 
@@ -32,7 +33,8 @@ class ActivitySecond : AppCompatActivity(), View.OnClickListener {
 
     fun getTempByLatLon() {
         WeatherRepository.GetDateByLatLon.getData(editTextLat.text.toString().trim(),
-            editTextLon.text.toString().trim(), object : OnGetTempCallback {
+            editTextLon.text.toString().trim(), object :
+                OnGetTempCallback {
                 override fun onSuccess(weather: Response<WeatherResponse>?) {
                     with(weather?.body()?.main) {
                         if (weather?.body() != null) {

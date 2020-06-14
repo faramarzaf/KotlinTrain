@@ -1,4 +1,4 @@
-package com.faramarz.kotlinapp
+package com.faramarz.kotlinapp.utils
 
 class ConversionUtil {
 

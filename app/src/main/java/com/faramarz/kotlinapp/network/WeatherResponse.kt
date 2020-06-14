@@ -1,4 +1,4 @@
-package com.faramarz.kotlinapp.weather
+package com.faramarz.kotlinapp.network
 
 import com.google.gson.annotations.SerializedName
 

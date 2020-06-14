@@ -1,6 +1,7 @@
 package com.faramarz.kotlinapp
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.faramarz.kotlinapp.utils.ConversionUtil
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
