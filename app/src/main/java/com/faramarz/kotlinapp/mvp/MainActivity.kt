@@ -19,8 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenterMain.attachView(this)
-        btnGetDataByLatLon.setOnClickListener(this)
-        btnGetDataByCityName.setOnClickListener(this)
+        initListeners()
     }
 
     override fun onClick(v: View?) {
@@ -30,6 +29,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
         }
     }
 
+    private fun initListeners() {
+        btnGetDataByLatLon.setOnClickListener(this)
+        btnGetDataByCityName.setOnClickListener(this)
+    }
 
     private fun getTempByLatLon() {
         presenterMain.getTempByLatLon(

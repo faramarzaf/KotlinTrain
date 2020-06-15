@@ -18,7 +18,7 @@ class ModelMain : ContractMain.Model {
     }
 
     override fun getTempByLatLon(lat: String, lon: String, textView: TextView) {
-        WeatherRepository.GetDateByLatLon.getData(lat, lon, object : OnGetTempCallback {
+        WeatherRepository.getDateByLatLon.getData(lat, lon, object : OnGetTempCallback {
             override fun onSuccess(weather: Response<WeatherResponse>?) {
                 with(weather?.body()?.main) {
                     if (weather?.body() != null) {
@@ -37,7 +37,7 @@ class ModelMain : ContractMain.Model {
     }
 
     override fun getTempByCityName(cityName: String, textView: TextView) {
-        WeatherRepository.GetDataByCityName.getData(cityName, object : OnGetTempCallback {
+        WeatherRepository.getDataByCityName.getData(cityName, object : OnGetTempCallback {
             override fun onSuccess(weather: Response<WeatherResponse>?) {
                 with(weather?.body()?.main) {
                     if (weather?.body() != null) {
