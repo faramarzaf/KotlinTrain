@@ -25,7 +25,7 @@ class WeatherRepository {
         }
     }
 
-      object getDateByLatLon {
+    object getDateByLatLon {
         fun getData(lat: String, lon: String, callback: OnGetTempCallback) {
             val request = ServiceBuilder.buildService(WeatherAPI::class.java)
             val call = request.getDataByLatLon(lat, lon, API_KEY)

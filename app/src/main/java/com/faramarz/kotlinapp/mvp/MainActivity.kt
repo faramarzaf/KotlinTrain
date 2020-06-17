@@ -11,10 +11,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
 
     private var presenterMain = PresenterMain()
 
-    override fun getActivity(): Activity {
-        return this
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,6 +23,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
             R.id.btnGetDataByLatLon -> getTempByLatLon()
             R.id.btnGetDataByCityName -> getTempByCityName()
         }
+    }
+
+    override fun getActivity(): Activity {
+        return this
     }
 
     private fun initListeners() {
@@ -45,5 +45,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
     private fun getTempByCityName() {
         presenterMain.getTempByCityName(editTextCity.text.toString().trim(), textTempCity)
     }
+
 
 }
