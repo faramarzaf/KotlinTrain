@@ -1,6 +1,7 @@
 package com.faramarz.kotlinapp.mvp
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ContractMain.Vie
     private fun getTempByCityName() {
         presenterMain.getTempByCityName(editTextCity.text.toString().trim(), textTempCity)
     }
-
 
 }
